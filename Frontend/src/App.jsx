@@ -1,4 +1,4 @@
-import Dashboard from './Dashboard'
+import Dashboard from './Dashboard/index.jsx'
 
 function App() {
   return <Dashboard />
