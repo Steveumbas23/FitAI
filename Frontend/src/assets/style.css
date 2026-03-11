@@ -357,6 +357,20 @@ body.modal-open {
   font-family: inherit;
   font-size: 13px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.breadcrumb-pill-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 14px;
 }
 
 .header-actions {
@@ -425,6 +439,89 @@ body.modal-open {
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.programs-content {
+  flex: 1;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.programs-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.programs-card {
+  width: min(1040px, 100%);
+  background: rgba(12, 12, 12, 0.75);
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  padding: 24px 28px;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(6px);
+}
+
+.programs-card-title {
+  margin: 0 0 18px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.programs-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.programs-detail-row {
+  display: grid;
+  grid-template-columns: 200px 8px 1fr;
+  align-items: center;
+  column-gap: 12px;
+  font-size: 14px;
+}
+
+.programs-detail-label {
+  color: var(--text-primary);
+}
+
+.programs-detail-colon {
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.programs-detail-value {
+  color: var(--text-muted);
+}
+
+.programs-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.programs-action {
+  border: 1px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.programs-action:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.16);
 }
 
 @keyframes searchReveal {

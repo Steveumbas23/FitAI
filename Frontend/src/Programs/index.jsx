@@ -2,29 +2,6 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../assets/style.css";
 
-const stats = [
-  {
-    title: "Total Workouts",
-    value: "142",
-    tone: "total",
-  },
-  {
-    title: "Workouts This Week",
-    value: "12",
-    tone: "weekly",
-  },
-  {
-    title: "Calories Burned",
-    value: "3,260",
-    tone: "calories",
-  },
-  {
-    title: "Workout Streak",
-    value: "8 days",
-    tone: "streak",
-  },
-];
-
 const sidebarNav = [
   {
     label: "Dashboard",
@@ -111,7 +88,14 @@ const favourites = [
   },
 ];
 
-function Dashboard() {
+const programDetails = [
+  { label: "Goal", value: "" },
+  { label: "Level", value: "" },
+  { label: "Workout Days", value: "" },
+  { label: "Exercises", value: "" },
+];
+
+function Programs() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isFavouriteOpen, setIsFavouriteOpen] = useState(true);
@@ -218,10 +202,11 @@ function Dashboard() {
       <section className="dashboard-main">
         <header className="dashboard-header">
           <div className="breadcrumb">
-            <span>Dashboard</span>
+            <span>Programs</span>
             <span className="breadcrumb-divider">›</span>
             <button type="button" className="breadcrumb-pill">
-              Workout
+              <span className="breadcrumb-pill-icon">☰</span>
+              Programs
             </button>
           </div>
 
@@ -252,47 +237,31 @@ function Dashboard() {
           </div>
         </header>
 
-        <main className="dashboard-content">
-          <section className="dashboard-top-grid">
-            <div className="stats-grid">
-              {stats.map((item) => (
-                <article
-                  key={item.title}
-                  className={`stat-card stat-card-${item.tone}`}
-                >
-                  <p className="stat-title">{item.title}</p>
-                  <p className="stat-value">{item.value}</p>
-                </article>
+        <main className="programs-content">
+          <h2 className="programs-title">Workout Programs</h2>
+          <section className="programs-card">
+            <h3 className="programs-card-title">Muscle Gain Program</h3>
+            <div className="programs-detail">
+              {programDetails.map((detail) => (
+                <div key={detail.label} className="programs-detail-row">
+                  <span className="programs-detail-label">{detail.label}</span>
+                  <span className="programs-detail-colon">:</span>
+                  <span className="programs-detail-value">
+                    {detail.value || "\u00A0"}
+                  </span>
+                </div>
               ))}
             </div>
-
-            <section className="chart-card">
-              <div className="chart-head">
-                <h3 className="chart-title">Weekly Progress</h3>
-                <span className="chart-badge">TPFx</span>
-              </div>
-              <div className="chart-placeholder" />
-            </section>
-          </section>
-
-          <section className="members-card">
-            <header className="members-header">
-              <span>Member Name</span>
-              <span>Age</span>
-              <span>Status</span>
-              <span>Last Visited</span>
-            </header>
-            <div className="members-row">
-              <div className="members-name">
-                <div className="members-avatar" />
-                <div>
-                  <p className="members-title">Stefeee</p>
-                  <p className="members-subtitle">umbasteve10@gmail.com</p>
-                </div>
-              </div>
-              <span>21</span>
-              <span className="members-status">Active</span>
-              <span>Yesterday</span>
+            <div className="programs-actions">
+              <button type="button" className="programs-action">
+                View
+              </button>
+              <button type="button" className="programs-action">
+                Edit
+              </button>
+              <button type="button" className="programs-action">
+                Delete
+              </button>
             </div>
           </section>
         </main>
@@ -301,4 +270,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Programs;
