@@ -111,6 +111,7 @@ const favourites = [
 function Dashboard() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isFavouriteOpen, setIsFavouriteOpen] = useState(true);
 
   return (
     <div className="dashboard-layout">
@@ -163,17 +164,38 @@ function Dashboard() {
             <div className="sidebar-divider" />
 
             <div className="sidebar-favourite">
-              <p className="sidebar-section-title">Favourite</p>
-              {favourites.map((item) => (
-                <button
-                  key={item.label}
-                  type="button"
-                  className="sidebar-nav-item"
+              <button
+                type="button"
+                className="sidebar-section-toggle"
+                aria-expanded={isFavouriteOpen}
+                onClick={() => setIsFavouriteOpen((prev) => !prev)}
+              >
+                <span
+                  className={`sidebar-section-arrow ${
+                    isFavouriteOpen ? "is-open" : ""
+                  }`}
+                  aria-hidden="true"
                 >
-                  <span className="sidebar-nav-icon">{item.icon}</span>
-                  <span>{item.label}</span>
-                </button>
-              ))}
+                  <svg viewBox="0 0 24 24">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+                <span className="sidebar-section-title">Favourite</span>
+              </button>
+              {isFavouriteOpen && (
+                <div className="sidebar-favourite-items">
+                  {favourites.map((item) => (
+                    <button
+                      key={item.label}
+                      type="button"
+                      className="sidebar-nav-item"
+                    >
+                      <span className="sidebar-nav-icon">{item.icon}</span>
+                      <span>{item.label}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </>
         )}

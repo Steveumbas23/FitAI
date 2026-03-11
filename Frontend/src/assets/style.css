@@ -265,11 +265,54 @@ body.modal-open {
 }
 
 .sidebar-section-title {
-  margin: 0 0 8px;
+  margin: 0;
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
+}
+
+.sidebar-section-toggle {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0 0 8px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.sidebar-section-arrow {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+}
+
+.sidebar-section-arrow svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sidebar-section-arrow.is-open {
+  transform: rotate(180deg);
+}
+
+.sidebar-favourite-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .dashboard-main {
