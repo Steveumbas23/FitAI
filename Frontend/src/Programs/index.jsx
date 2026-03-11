@@ -237,7 +237,7 @@ function Programs() {
           </div>
         </header>
 
-        <main className="programs-content">
+        <main className="programs-content page-animate">
           <h2 className="programs-title">Workout Programs</h2>
           <section className="programs-card">
             <h3 className="programs-card-title">Muscle Gain Program</h3>

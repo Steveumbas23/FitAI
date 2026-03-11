@@ -252,7 +252,7 @@ function Dashboard() {
           </div>
         </header>
 
-        <main className="dashboard-content">
+        <main className="dashboard-content page-animate">
           <section className="dashboard-top-grid">
             <div className="stats-grid">
               {stats.map((item) => (
